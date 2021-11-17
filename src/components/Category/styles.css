@@ -1,0 +1,18 @@
+.Category {
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 1rem;
+}
+
+.term {
+	list-style: none;
+}
+
+.term a {
+	text-decoration: none;
+	color: #777779;
+}
+
+.term a:hover {
+	color: #fff;
+}
