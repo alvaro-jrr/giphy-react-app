@@ -24,7 +24,7 @@ const Home = () => {
 			<Helmet>
 				<title>Giphy App | Inicio</title>
 				<link
-					rel="conincal"
+					rel="canonical"
 					href="https://giphy-app-alvaro-jrr.vercel.app/"
 				/>
 				<meta
