@@ -23,6 +23,10 @@ const Home = () => {
 		<>
 			<Helmet>
 				<title>Giphy App | Inicio</title>
+				<link
+					rel="conincal"
+					href="https://giphy-app-alvaro-jrr.vercel.app/"
+				/>
 				<meta
 					name="description"
 					content="Buscador 🔍 y Visualizador 👀 de GIFs construido 
