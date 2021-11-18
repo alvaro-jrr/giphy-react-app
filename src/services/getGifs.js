@@ -15,7 +15,7 @@ const fromApiToGifs = (response) => {
 			const { id, images, title } = gif;
 
 			// Obtencion del url del objeto images, propiedad fixed_height
-			const { url } = images.fixed_height_downsampled;
+			const { url } = images.downsized_medium;
 
 			// Retorno del Objeto con la Informacion necesaria
 			return { id, url, title };
