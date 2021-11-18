@@ -5,6 +5,7 @@ import useGifs from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
 import { Helmet } from "react-helmet";
+import { useLocation } from "wouter";
 
 const SearchResults = ({ params }) => {
 	const { keyword } = params;
@@ -14,6 +15,8 @@ const SearchResults = ({ params }) => {
 	const { isNearScreen, fromRef } = useNearScreen({ observeOnce: false });
 
 	const title = gifs ? decodeURI(keyword) : "";
+
+	const [location] = useLocation();
 
 	const debounceHandleNextPage = useCallback(
 		() =>
@@ -43,6 +46,10 @@ const SearchResults = ({ params }) => {
 				<meta
 					name="description"
 					content={`Resultados de búsqueda 🔍 de ${title}`}
+				/>
+				<link
+					rel="canonical"
+					content={`https://giphy-app-alvaro-jrr.vercel.app${location}`}
 				/>
 			</Helmet>
 
