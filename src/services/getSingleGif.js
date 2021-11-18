@@ -3,7 +3,7 @@ import { API_KEY, API_URL } from "./settings";
 const fromApiToSingleGif = (response) => {
 	const { data = [] } = response;
 	const { id, images, title } = data;
-	const { url } = images.fixed_height;
+	const { url } = images.downsized_medium;
 
 	return { id, url, title };
 };
