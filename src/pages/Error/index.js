@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorIllustration from "./dog-eating-a-page.png";
+import ErrorIllustration from "images/dog-eating-a-page.png";
 import { Helmet } from "react-helmet";
 import { Link, useLocation } from "wouter";
 
