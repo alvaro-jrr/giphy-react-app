@@ -4,11 +4,13 @@ import useSingleGif from "hooks/useSingleGif";
 import Spinner from "components/Spinner";
 import { Redirect } from "wouter";
 import { Helmet } from "react-helmet";
+import { useLocation } from "wouter";
 
 const Details = ({ params }) => {
 	const { id } = params;
 	const { gif, isLoading, isError } = useSingleGif({ id });
 	const title = gif ? gif.title : "";
+	const [location] = useLocation();
 
 	if (isLoading) {
 		return (
@@ -30,6 +32,10 @@ const Details = ({ params }) => {
 			<Helmet>
 				<title>{`Giphy App | ${title}`}</title>
 				<meta name="description" content={`Detalles 🛈 de ${title}`} />
+				<link
+					rel="canonical"
+					href={`https://giphy-app-alvaro-jrr.vercel.app${location}`}
+				/>
 			</Helmet>
 
 			<section className="Details">
