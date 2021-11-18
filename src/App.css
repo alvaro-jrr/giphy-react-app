@@ -74,6 +74,38 @@
 	justify-content: center;
 }
 
+/* Error */
+
+.ErrorPage {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	row-gap: 2rem;
+}
+
+.ErrorPage-img {
+	height: auto;
+	width: 100%;
+	max-width: 400px;
+	object-fit: contain;
+}
+
+.ErrorPage-information {
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 1rem;
+	align-items: center;
+}
+
+.ErrorPage-title {
+	text-align: center;
+}
+
+.ErrorPage-redirect,
+.ErrorPage-redirect a {
+	color: #fff;
+}
+
 @media screen and (min-width: 50.75rem) {
 	.Home-content {
 		display: grid;
