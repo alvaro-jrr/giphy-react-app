@@ -27,11 +27,11 @@ const fromApiToGifs = (response) => {
 	}
 };
 
-const getGifs = async ({ limit = 25, keyword, page = 0 } = {}) => {
+const getGifs = ({ limit = 25, keyword, page = 0, rating = "g" } = {}) => {
 	// URL con el parametro de busqueda y la llave del API
 	const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}
 		&q=${keyword}&limit=${limit}&offset=${page * limit}
-		&rating=g&lang=en`;
+		&rating=${rating}&lang=en`;
 
 	return fetch(apiURL)
 		.then((response) =>

@@ -5,18 +5,28 @@
 	gap: 1rem;
 }
 
-.Form-input {
+.Form-input,
+.Form-select {
 	height: 3rem;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	width: 100%;
+	background-color: #fff;
+}
+
+.Form-input {
 	width: 100%;
 	border: none;
-	border-radius: 4px;
-	padding: 0.5rem;
 	font-size: 1rem;
 	color: #363636;
 }
 
 .Form-input:focus {
 	outline: none;
+}
+
+.Form-select:hover {
+	cursor: pointer;
 }
 
 @media screen and (min-width: 50.75rem) {
@@ -28,7 +38,8 @@
 		width: 25rem;
 	}
 
-	.Button {
+	.Button,
+	.Form-select {
 		width: 7.5rem;
 	}
 }

@@ -6,7 +6,7 @@ const Gif = ({ gifId, url, title }) => {
 	return (
 		<Link className="Gif" to={`/details/${gifId}`}>
 			<img
-				width="200"
+				width="320"
 				height="200"
 				className="Gif-img"
 				loading="lazy"
