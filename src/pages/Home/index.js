@@ -1,23 +1,12 @@
-import React, { useCallback } from "react";
+import React from "react";
 import ListOfGifs from "components/ListOfGifs";
 import useGifs from "hooks/useGifs";
 import TrendingSearches from "components/TrendingSearches/index";
 import SearchForm from "components/SearchForm";
-import { useLocation } from "wouter";
 import { Helmet } from "react-helmet";
 
 const Home = () => {
 	const { gifs } = useGifs();
-	const [, setLocation] = useLocation();
-
-	// Accion al hacer submit
-	const handleSubmit = useCallback(
-		({ keyword }) => {
-			// Navegar a otra ruta
-			setLocation(`/search/${keyword}`);
-		},
-		[setLocation]
-	);
 
 	return (
 		<>
@@ -35,7 +24,7 @@ const Home = () => {
 			</Helmet>
 
 			<section className="Home">
-				<SearchForm onSubmit={handleSubmit} />
+				<SearchForm />
 
 				<div className="Home-content">
 					<ListOfGifs gifs={gifs} title="&Uacute;ltimo Resultado" />

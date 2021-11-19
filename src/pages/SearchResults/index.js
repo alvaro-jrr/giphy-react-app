@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from "react";
+import SearchForm from "components/SearchForm";
 import ListOfGifs from "components/ListOfGifs";
 import Spinner from "components/Spinner";
 import useGifs from "hooks/useGifs";
@@ -8,14 +9,10 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "wouter";
 
 const SearchResults = ({ params }) => {
-	const { keyword } = params;
-
-	const { gifs, loading, setPage } = useGifs({ keyword });
-
+	const { keyword, rating } = params;
+	const { gifs, loading, setPage } = useGifs({ keyword, rating });
 	const { isNearScreen, fromRef } = useNearScreen({ observeOnce: false });
-
 	const title = gifs ? decodeURI(keyword) : "";
-
 	const [location] = useLocation();
 
 	const debounceHandleNextPage = useCallback(
@@ -42,7 +39,7 @@ const SearchResults = ({ params }) => {
 	) : (
 		<>
 			<Helmet>
-				<title>{`Giphy App | ${gifs.length} resultados de ${title}`}</title>
+				<title>{`Giphy App | ${gifs.length} Resultados de ${title}`}</title>
 				<meta
 					name="description"
 					content={`Resultados de búsqueda 🔍 de ${title}`}
@@ -54,6 +51,7 @@ const SearchResults = ({ params }) => {
 			</Helmet>
 
 			<section className="SearchResults">
+				<SearchForm initialKeyword={keyword} initialRating={rating} />
 				<ListOfGifs gifs={gifs} title={title} />
 				<div id="viewer" ref={fromRef}></div>
 			</section>

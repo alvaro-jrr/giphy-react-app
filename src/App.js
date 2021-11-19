@@ -24,7 +24,10 @@ const App = () => {
 
 				<GifsContextProvider>
 					<Route path="/" component={Home} />
-					<Route path="/search/:keyword" component={SearchResults} />
+					<Route
+						path="/search/:keyword/:rating?"
+						component={SearchResults}
+					/>
 					<Route path="/details/:id" component={Details} />
 					<Route path="/404" component={ErrorPage} />
 				</GifsContextProvider>
