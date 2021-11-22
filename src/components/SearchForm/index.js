@@ -1,36 +1,53 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "wouter";
+import useForm from "./hook";
 import Button from "components/Button";
 import "./styles.css";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
-const SearchForm = ({ initialKeyword = "", initialRating = "g" }) => {
-	const [keyword, setKeyword] = useState(decodeURIComponent(initialKeyword));
-	const [rating, setRating] = useState(initialRating);
+const LANGUAGES = ["en", "es", "pt"];
+
+const SearchForm = ({
+	initialKeyword = "",
+	initialRating = "g",
+	initialLanguage = "en",
+}) => {
 	const [, setLocation] = useLocation();
 
+	const {
+		keyword,
+		rating,
+		language,
+		times,
+		updateKeyword,
+		updateRating,
+		updateLanguage,
+	} = useForm({
+		initialKeyword,
+		initialRating,
+		initialLanguage,
+	});
+
 	// Actualiza el valor de keyword
-	const handleChange = (evt) => setKeyword(evt.target.value);
-
-	// Maneja el evento al hacer submit, establece la nueva ubicacion
-	const handleSubmit = (evt) => {
-		// Previene el evento por default
-		evt.preventDefault();
-
-		// Navegar a otra ruta
-		setLocation(`/search/${keyword}/${rating}`);
-	};
+	const handleChange = (evt) => updateKeyword(evt.target.value);
 
 	// Actualiza el valor del rating
-	const handleChangeRating = (evt) => {
-		setRating(evt.target.value);
+	const handleChangeRating = (evt) => updateRating(evt.target.value);
+
+	// Actualiza el valor del language
+	const handleChangeLanguage = (evt) => updateLanguage(evt.target.value);
+
+	// Navegar a otra ruta
+	const handleSubmit = (evt) => {
+		evt.preventDefault();
+		setLocation(`/search/${keyword}/${rating}/${language}`);
 	};
 
 	return (
-		<form className="Form" onSubmit={handleSubmit}>
+		<form className="SearchForm" onSubmit={handleSubmit}>
 			<input
-				className="Form-input"
+				className="SearchForm-input"
 				onChange={handleChange}
 				placeholder="Busca un Gif"
 				type="text"
@@ -38,18 +55,32 @@ const SearchForm = ({ initialKeyword = "", initialRating = "g" }) => {
 			/>
 
 			<select
-				className="Form-select"
+				className="SearchForm-select"
 				onChange={handleChangeRating}
 				value={rating}
 			>
-				<option disabled>Rating Type</option>
+				<optgroup label="Clasificaci&oacute;n">
+					{RATINGS.map((rating) => (
+						<option key={rating}>{rating}</option>
+					))}
+				</optgroup>
+			</select>
 
-				{RATINGS.map((rating) => (
-					<option key={rating}>{rating}</option>
-				))}
+			<select
+				className="SearchForm-select"
+				onChange={handleChangeLanguage}
+				value={language}
+			>
+				<optgroup label="Idioma">
+					{LANGUAGES.map((language) => (
+						<option key={language}>{language}</option>
+					))}
+				</optgroup>
 			</select>
 
 			<Button text="Buscar" />
+
+			<small>{times}</small>
 		</form>
 	);
 };

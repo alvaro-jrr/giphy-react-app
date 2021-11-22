@@ -1,12 +1,12 @@
-.Form {
+.SearchForm {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
 	gap: 1rem;
 }
 
-.Form-input,
-.Form-select {
+.SearchForm-input,
+.SearchForm-select {
 	height: 3rem;
 	padding: 0.5rem;
 	border-radius: 0.25rem;
@@ -14,32 +14,32 @@
 	background-color: #fff;
 }
 
-.Form-input {
+.SearchForm-input {
 	width: 100%;
 	border: none;
 	font-size: 1rem;
 	color: #363636;
 }
 
-.Form-input:focus {
+.SearchForm-input:focus {
 	outline: none;
 }
 
-.Form-select:hover {
+.SearchForm-select:hover {
 	cursor: pointer;
 }
 
 @media screen and (min-width: 50.75rem) {
-	.Form {
+	.SearchForm {
 		flex-flow: row nowrap;
 	}
 
-	.Form-input {
+	.SearchForm-input {
 		width: 25rem;
 	}
 
 	.Button,
-	.Form-select {
+	.SearchForm-select {
 		width: 7.5rem;
 	}
 }
