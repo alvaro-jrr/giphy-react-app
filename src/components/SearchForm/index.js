@@ -5,7 +5,6 @@ import Button from "components/Button";
 import "./styles.css";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
-
 const LANGUAGES = ["en", "es", "pt"];
 
 const SearchForm = ({
@@ -23,6 +22,7 @@ const SearchForm = ({
 		updateKeyword,
 		updateRating,
 		updateLanguage,
+		resetFilters,
 	} = useForm({
 		initialKeyword,
 		initialRating,
@@ -37,6 +37,9 @@ const SearchForm = ({
 
 	// Actualiza el valor del language
 	const handleChangeLanguage = (evt) => updateLanguage(evt.target.value);
+
+	// Reinicia los filtros
+	const handleReset = () => resetFilters();
 
 	// Navegar a otra ruta
 	const handleSubmit = (evt) => {
@@ -78,7 +81,9 @@ const SearchForm = ({
 				</optgroup>
 			</select>
 
-			<Button text="Buscar" />
+			<Button handleClick={handleReset} className="Reset" text="Reset" />
+
+			<Button handleClick={handleSubmit} type="submit" text="Buscar" />
 
 			<small>{times}</small>
 		</form>

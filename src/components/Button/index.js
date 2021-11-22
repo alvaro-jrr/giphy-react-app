@@ -1,10 +1,20 @@
 import "./styles.css";
 
-const Button = ({ text, handleClick }) => {
+const Button = ({
+	text = "",
+	className = "",
+	handleClick = null,
+	type = "button",
+} = {}) => {
+	const typeToUse = type !== "button" || type !== "submit" ? "button" : type;
+
 	return (
-		<button className="Button" onClick={handleClick}>
-			{text}
-		</button>
+		<input
+			className={`Button ${className}`}
+			onClick={handleClick}
+			type={typeToUse}
+			value={text}
+		/>
 	);
 };
 
