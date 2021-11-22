@@ -13,3 +13,11 @@
 .Button:hover {
 	background-color: hsl(264deg 98% 63%);
 }
+
+.Button.Reset {
+	border-color: #e23655;
+}
+
+.Button.Reset:hover {
+	background-color: #e23655;
+}

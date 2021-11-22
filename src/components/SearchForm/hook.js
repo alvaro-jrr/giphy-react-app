@@ -4,6 +4,7 @@ const ACTIONS = {
 	UPDATE_KEYWORD: "update_keyword",
 	UPDATE_RATING: "update_rating",
 	UPDATE_LANGUAGE: "update_language",
+	RESET_FORM: "reset_form",
 };
 
 const ACTIONS_REDUCERS = {
@@ -12,13 +13,20 @@ const ACTIONS_REDUCERS = {
 		keyword: action.payload,
 		times: state.times + 1,
 	}),
+
 	[ACTIONS.UPDATE_RATING]: (state, action) => ({
 		...state,
 		rating: action.payload,
 	}),
+
 	[ACTIONS.UPDATE_LANGUAGE]: (state, action) => ({
 		...state,
 		language: action.payload,
+	}),
+
+	[ACTIONS.RESET_FORM]: (state, action) => ({
+		...state,
+		...action.payload,
 	}),
 };
 
@@ -56,12 +64,24 @@ const useForm = ({
 		rating,
 		times,
 		language,
+
 		updateKeyword: (keyword) =>
 			dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: keyword }),
+
 		updateRating: (rating) =>
 			dispatch({ type: ACTIONS.UPDATE_RATING, payload: rating }),
+
 		updateLanguage: (language) =>
 			dispatch({ type: ACTIONS.UPDATE_LANGUAGE, payload: language }),
+
+		resetFilters: () =>
+			dispatch({
+				type: ACTIONS.RESET_FORM,
+				payload: {
+					language: "en",
+					rating: "g",
+				},
+			}),
 	};
 };
 
