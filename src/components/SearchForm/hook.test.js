@@ -62,3 +62,20 @@ test("should change language", () => {
 
 	expect(result.current.language).toBe("es");
 });
+
+test("should reset filters", () => {
+	const { result } = setup();
+
+	act(() => {
+		result.current.updateRating("pg-13");
+		result.current.updateLanguage("es");
+	});
+
+	expect(result.current.rating).toBe("pg-13");
+	expect(result.current.language).toBe("es");
+
+	act(() => result.current.resetFilters());
+
+	expect(result.current.rating).toBe("g");
+	expect(result.current.language).toBe("en");
+});
