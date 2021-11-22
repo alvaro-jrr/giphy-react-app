@@ -9,8 +9,8 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "wouter";
 
 const SearchResults = ({ params }) => {
-	const { keyword, rating } = params;
-	const { gifs, loading, setPage } = useGifs({ keyword, rating });
+	const { keyword, rating, language } = params;
+	const { gifs, loading, setPage } = useGifs({ keyword, rating, language });
 	const { isNearScreen, fromRef } = useNearScreen({ observeOnce: false });
 	const title = gifs ? decodeURI(keyword) : "";
 	const [location] = useLocation();
@@ -51,7 +51,11 @@ const SearchResults = ({ params }) => {
 			</Helmet>
 
 			<section className="SearchResults">
-				<SearchForm initialKeyword={keyword} initialRating={rating} />
+				<SearchForm
+					initialKeyword={keyword}
+					initialRating={rating}
+					initialLanguage={language}
+				/>
 				<ListOfGifs gifs={gifs} title={title} />
 				<div id="viewer" ref={fromRef}></div>
 			</section>
