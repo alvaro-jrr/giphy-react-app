@@ -32,7 +32,6 @@ test("should update correctly when used twice", () => {
 	});
 
 	expect(result.current.keyword).toBe("madrid");
-	expect(result.current.times).toBe(2);
 });
 
 test("should change rating", () => {
@@ -41,18 +40,6 @@ test("should change rating", () => {
 	act(() => result.current.updateRating("pg-13"));
 
 	expect(result.current.rating).toBe("pg-13");
-});
-
-test("should not update times when updated rating", () => {
-	const { result } = setup();
-
-	act(() => {
-		result.current.updateRating("g");
-		result.current.updateRating("pg");
-	});
-
-	expect(result.current.rating).toBe("pg");
-	expect(result.current.times).toBe(0);
 });
 
 test("should change language", () => {
