@@ -1,38 +1,42 @@
-import { Link, Route } from "wouter";
-import Home from "./pages/Home";
-import Details from "./pages/Details";
-import SearchResults from "./pages/SearchResults";
+import { Route, Switch } from "wouter";
+import Header from "components/Header";
+import Login from "pages/Login";
+import Home from "pages/Home";
+import Details from "pages/Details";
+import SearchResults from "pages/SearchResults";
 import ErrorPage from "pages/Error";
-import { GifsContextProvider } from "./context/GifsContext";
-import "./App.css";
+import { UserContextProvider } from "context/UserContext";
+import { GifsContextProvider } from "context/GifsContext";
+import "App.css";
 
 const App = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<Link to="/">
-					<h1 className="App-title">Giphy App</h1>
-				</Link>
-			</header>
+		<UserContextProvider>
+			<div className="App">
+				<Header />
 
-			<main className="App-main">
-				{/*
-					Todas las rutas, que están envueltas con
-					GifsContextProvider tendrán acceso al contexto
-					que se haya establecido en GifsContextProvider
-				*/}
+				<main className="App-main">
+					{/*
+						Todas las rutas, que están envueltas con
+						GifsContextProvider tendrán acceso al contexto
+						que se haya establecido en GifsContextProvider
+					*/}
 
-				<GifsContextProvider>
-					<Route path="/" component={Home} />
-					<Route
-						path="/search/:keyword/:rating?/:language?"
-						component={SearchResults}
-					/>
-					<Route path="/details/:id" component={Details} />
-					<Route path="/404" component={ErrorPage} />
-				</GifsContextProvider>
-			</main>
-		</div>
+					<GifsContextProvider>
+						<Switch>
+							<Route path="/" component={Home} />
+							<Route path="/login" component={Login} />
+							<Route
+								path="/search/:keyword/:rating?/:language?"
+								component={SearchResults}
+							/>
+							<Route path="/details/:id" component={Details} />
+							<Route path="/:rest*" component={ErrorPage} />
+						</Switch>
+					</GifsContextProvider>
+				</main>
+			</div>
+		</UserContextProvider>
 	);
 };
 

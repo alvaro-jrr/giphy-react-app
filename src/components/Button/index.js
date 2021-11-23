@@ -1,12 +1,13 @@
+import React from "react";
 import "./styles.css";
 
 const Button = ({
 	text = "",
 	className = "",
-	handleClick = null,
+	handleClick,
 	type = "button",
 } = {}) => {
-	const typeToUse = type !== "button" || type !== "submit" ? "button" : type;
+	const typeToUse = type === "button" || type === "submit" ? type : "button";
 
 	return (
 		<input
@@ -18,4 +19,4 @@ const Button = ({
 	);
 };
 
-export default Button;
+export default React.memo(Button);

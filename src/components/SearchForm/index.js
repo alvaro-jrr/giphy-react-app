@@ -18,7 +18,6 @@ const SearchForm = ({
 		keyword,
 		rating,
 		language,
-		times,
 		updateKeyword,
 		updateRating,
 		updateLanguage,
@@ -84,8 +83,6 @@ const SearchForm = ({
 			<Button handleClick={handleReset} className="Reset" text="Reset" />
 
 			<Button handleClick={handleSubmit} type="submit" text="Buscar" />
-
-			<small>{times}</small>
 		</form>
 	);
 };

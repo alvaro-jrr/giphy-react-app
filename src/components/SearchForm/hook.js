@@ -11,7 +11,6 @@ const ACTIONS_REDUCERS = {
 	[ACTIONS.UPDATE_KEYWORD]: (state, action) => ({
 		...state,
 		keyword: action.payload,
-		times: state.times + 1,
 	}),
 
 	[ACTIONS.UPDATE_RATING]: (state, action) => ({
@@ -54,7 +53,6 @@ const useForm = ({
 		keyword: decodeURIComponent(initialKeyword),
 		rating: initialRating,
 		language: initialLanguage,
-		times: 0,
 	});
 
 	const { keyword, rating, times, language } = state;
