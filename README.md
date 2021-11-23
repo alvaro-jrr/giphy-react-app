@@ -1,3 +1,17 @@
+# giphy-react-app
+
+App built with React that use GIPHY API to fetch, display and search GIFs.
+
+## Built with
+
+* [React](https://github.com/facebook/react/) - Javascript Library
+* [React Helmet](https://github.com/nfl/react-helmet) - Document head manager for React
+* [Wouter](https://github.com/molefrog/wouter) - Router library
+
+## Author
+
+* [Alvaro Resplandor](https://github.com/alvaro-jrr) 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,5 +82,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# giphy-react-app
 
