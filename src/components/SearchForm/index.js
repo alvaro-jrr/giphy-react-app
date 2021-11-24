@@ -2,6 +2,8 @@ import React from "react";
 import { useLocation } from "wouter";
 import useForm from "./hook";
 import Button from "components/Button";
+import SearchIcon from "images/search_white_24dp.svg";
+import ResetIcon from "images/restart_alt_white_24dp.svg";
 import "./styles.css";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
@@ -38,7 +40,10 @@ const SearchForm = ({
 	const handleChangeLanguage = (evt) => updateLanguage(evt.target.value);
 
 	// Reinicia los filtros
-	const handleReset = () => resetFilters();
+	const handleReset = (evt) => {
+		evt.preventDefault();
+		resetFilters();
+	};
 
 	// Navegar a otra ruta
 	const handleSubmit = (evt) => {
@@ -48,41 +53,68 @@ const SearchForm = ({
 
 	return (
 		<form className="SearchForm" onSubmit={handleSubmit}>
-			<input
-				className="SearchForm-input"
-				onChange={handleChange}
-				placeholder="Busca un Gif"
-				type="text"
-				value={keyword}
-			/>
+			<div className="Search">
+				<input
+					className="Search-input"
+					onChange={handleChange}
+					placeholder="Busca un Gif"
+					type="text"
+					value={keyword}
+				/>
 
-			<select
-				className="SearchForm-select"
-				onChange={handleChangeRating}
-				value={rating}
-			>
-				<optgroup label="Clasificaci&oacute;n">
-					{RATINGS.map((rating) => (
-						<option key={rating}>{rating}</option>
-					))}
-				</optgroup>
-			</select>
+				<Button
+					className="Search"
+					handleClick={handleSubmit}
+					content={
+						<img
+							src={SearchIcon}
+							alt="Icono de Búsqueda"
+							width="24"
+							height="24"
+						/>
+					}
+				/>
+			</div>
 
-			<select
-				className="SearchForm-select"
-				onChange={handleChangeLanguage}
-				value={language}
-			>
-				<optgroup label="Idioma">
-					{LANGUAGES.map((language) => (
-						<option key={language}>{language}</option>
-					))}
-				</optgroup>
-			</select>
+			<div className="Filters">
+				<select
+					className="Filter"
+					onChange={handleChangeRating}
+					value={rating}
+				>
+					<optgroup label="Clasificaci&oacute;n">
+						{RATINGS.map((rating) => (
+							<option key={rating}>{rating}</option>
+						))}
+					</optgroup>
+				</select>
 
-			<Button handleClick={handleReset} className="Reset" text="Reset" />
+				<select
+					className="Filter"
+					onChange={handleChangeLanguage}
+					value={language}
+				>
+					<optgroup label="Idioma">
+						{LANGUAGES.map((language) => (
+							<option key={language}>{language}</option>
+						))}
+					</optgroup>
+				</select>
 
-			<Button handleClick={handleSubmit} type="submit" text="Buscar" />
+				<Button
+					handleClick={handleReset}
+					className="Reset"
+					title="Icono de Reinicio de Filtros"
+					content={
+						<img
+							src={ResetIcon}
+							alt="Icono de Reinicio de Filtros"
+							width="24"
+							height="24"
+						/>
+					}
+				/>
+			</div>
 		</form>
 	);
 };

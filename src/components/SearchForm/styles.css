@@ -6,28 +6,56 @@
 	color: #fff;
 }
 
-.SearchForm-input,
-.SearchForm-select {
+.Search-input,
+.Filter {
 	height: 3rem;
 	padding: 0.5rem;
-	border-radius: 0.25rem;
 	width: 100%;
 	background-color: #fff;
 }
 
-.SearchForm-input {
+.SearchForm .Button {
+	display: flex;
+	align-items: center;
+	border-radius: 0 0.25rem 0.25rem 0;
+	justify-content: center;
+	width: 3.5rem;
+}
+
+/* --- Subcontent --- */
+
+.Search {
+	display: grid;
+	grid-template-columns: 1fr auto;
+}
+
+.Filters {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr) auto;
+}
+
+/* --- MainSearch --- */
+
+.Search-input {
+	border-radius: 0.25rem 0 0 0.25rem;
 	width: 100%;
 	border: none;
 	font-size: 1rem;
 	color: #363636;
 }
 
-.SearchForm-input:focus {
+.Search-input:focus {
 	outline: none;
 }
 
-.SearchForm-select:hover {
+.Filter:hover {
 	cursor: pointer;
+}
+
+/* --- Filters --- */
+
+.Filter:first-child {
+	border-radius: 0.25rem 0 0 0.25rem;
 }
 
 @media screen and (min-width: 50.75rem) {
@@ -35,12 +63,11 @@
 		flex-flow: row nowrap;
 	}
 
-	.SearchForm-input {
-		width: 25rem;
+	.Search-input {
+		width: 18rem;
 	}
 
-	.SearchForm .Button,
-	.SearchForm-select {
-		width: 7.5rem;
+	.Filter {
+		width: 3.5rem;
 	}
 }

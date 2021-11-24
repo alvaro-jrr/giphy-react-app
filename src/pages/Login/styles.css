@@ -1,14 +1,24 @@
 .Login {
 	display: flex;
-	align-items: center;
+	flex-flow: column nowrap;
+	row-gap: 1rem;
+	margin-top: 4rem;
+	width: 100%;
+	max-width: 400px;
+	align-self: center;
 	justify-content: center;
+	color: #fff;
+}
+
+.LoginForm {
+	display: flex;
 	flex-flow: column nowrap;
 	row-gap: 1rem;
 	width: 100%;
 }
 
-.Login input[type="text"],
-.Login input[type="password"] {
+.LoginForm input[type="text"],
+.LoginForm input[type="password"] {
 	height: 3rem;
 	border-radius: 0.25rem;
 	border: none;
@@ -20,8 +30,8 @@
 	width: 100%;
 }
 
-.Login input[type="text"],
-.Login input[type="password"],
-.Login .Button {
+.LoginForm input[type="text"],
+.LoginForm input[type="password"],
+.LoginForm .Button {
 	max-width: 25rem;
 }

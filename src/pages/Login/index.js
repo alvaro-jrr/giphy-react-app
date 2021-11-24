@@ -8,7 +8,7 @@ const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [, setLocation] = useLocation("");
-	const { isLogged, login } = useUser();
+	const { isLogged, isLoading, isError, login } = useUser();
 
 	// Si isLogged lo redirige al Home
 	useEffect(
@@ -25,27 +25,37 @@ const Login = () => {
 	// Loggear al usuario
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
-		login();
+		login({ username, password });
 	};
 
 	return (
-		<form className="Login" onSubmit={handleSubmit}>
-			<input
-				type="text"
-				placeholder="Username"
-				onChange={handleChangeUser}
-				value={username}
-			/>
+		<section className="Login">
+			<h2>Login</h2>
 
-			<input
-				type="password"
-				placeholder="Password"
-				onChange={handleChangePassword}
-				value={password}
-			/>
+			{!isLoading && (
+				<form className="LoginForm" onSubmit={handleSubmit}>
+					<input
+						type="text"
+						placeholder="Username"
+						onChange={handleChangeUser}
+						value={username}
+					/>
 
-			<Button handleClick={handleSubmit} text="Login" />
-		</form>
+					<input
+						type="password"
+						placeholder="Password"
+						onChange={handleChangePassword}
+						value={password}
+					/>
+
+					<Button handleClick={handleSubmit} content="Login" />
+				</form>
+			)}
+
+			{isLoading && <span>Verifying...</span>}
+
+			{isError && <span>Credentials Error</span>}
+		</section>
 	);
 };
 

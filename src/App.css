@@ -6,6 +6,8 @@
 }
 
 .App-main {
+	display: flex;
+	flex-flow: column nowrap;
 	flex: 1;
 	padding: 1.5rem;
 }

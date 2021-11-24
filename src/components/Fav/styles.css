@@ -1,0 +1,15 @@
+.Fav {
+	height: 2rem;
+	width: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background-color: rgb(0 0 0 / 75%);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.Fav:hover {
+	background-color: rgb(0 0 0 / 100%);
+}
