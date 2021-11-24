@@ -15,11 +15,15 @@ const Header = () => {
 			</Link>
 
 			{isLogged ? (
-				<Button handleClick={logout} className="Danger" text="Logout" />
+				<Button
+					handleClick={logout}
+					className="Danger"
+					content="Logout"
+				/>
 			) : (
 				<Button
 					handleClick={() => setLocation("/login")}
-					text="Login"
+					content="Login"
 				/>
 			)}
 		</header>

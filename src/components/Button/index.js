@@ -1,21 +1,15 @@
 import React from "react";
 import "./styles.css";
 
-const Button = ({
-	text = "",
-	className = "",
-	handleClick,
-	type = "button",
-} = {}) => {
-	const typeToUse = type === "button" || type === "submit" ? type : "button";
-
+const Button = ({ content = "", className = "", title, handleClick } = {}) => {
 	return (
-		<input
+		<button
 			className={`Button ${className}`}
+			title={title ? title : null}
 			onClick={handleClick}
-			type={typeToUse}
-			value={text}
-		/>
+		>
+			{content}
+		</button>
 	);
 };
 
