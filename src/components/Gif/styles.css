@@ -32,7 +32,7 @@
 
 .Gif .Fav {
 	position: absolute;
-	top: 0.25rem;
-	right: 0.25rem;
+	top: 0.5rem;
+	right: 0.5rem;
 	z-index: 1;
 }
