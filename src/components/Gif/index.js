@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "wouter";
 import Fav from "components/Fav";
 import "./styles.css";
+import useNearScreen from "hooks/useNearScreen";
 
 const Gif = ({ gifId, url, title }) => {
+	const { isNearScreen, fromRef } = useNearScreen();
+
+	// if img isn't visible then loading is set to lazy
+	const loadingType = isNearScreen ? null : "lazy";
+
 	return (
-		<div className="Gif">
+		<div ref={fromRef} className="Gif">
 			<div className="Gif-buttons">
 				<Fav id={gifId} />
 			</div>
@@ -15,7 +21,7 @@ const Gif = ({ gifId, url, title }) => {
 					width="320"
 					height="200"
 					className="Gif-img"
-					loading="lazy"
+					loading={loadingType}
 					src={url}
 					alt={title}
 				/>
