@@ -65,6 +65,7 @@ const SearchForm = ({
 				<Button
 					className="Search"
 					handleClick={handleSubmit}
+					title="Buscar"
 					content={
 						<img
 							src={SearchIcon}
@@ -104,7 +105,7 @@ const SearchForm = ({
 				<Button
 					handleClick={handleReset}
 					className="Reset"
-					title="Icono de Reinicio de Filtros"
+					title="Reiniciar filtros"
 					content={
 						<img
 							src={ResetIcon}

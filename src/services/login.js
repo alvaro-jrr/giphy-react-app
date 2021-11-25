@@ -10,8 +10,6 @@ const login = ({ username, password }) => {
 		body: JSON.stringify({ username, password }),
 	})
 		.then((Response) => {
-			console.log(Response);
-
 			if (Response.ok) {
 				return Response.json();
 			} else {
