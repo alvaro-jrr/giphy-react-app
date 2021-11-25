@@ -12,6 +12,67 @@
 	padding: 1.5rem;
 }
 
+/* Button */
+
+.btn {
+	height: 3rem;
+	width: 100%;
+	border: 2px solid hsl(264deg 98% 63%);
+	border-radius: 4px;
+	background-color: transparent;
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: hsl(264deg 98% 63%);
+}
+
+.btn.is-danger {
+	border-color: #e23655;
+}
+
+.btn.is-danger:hover {
+	background-color: #e23655;
+}
+
+/* Form */
+
+.form {
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 1rem;
+	width: 100%;
+}
+
+.form label {
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 0.25rem;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+	height: 3rem;
+	border-radius: 0.25rem;
+	border: none;
+	width: 100%;
+	padding: 0.5rem;
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form .btn {
+	max-width: 25rem;
+}
+
+.form-error {
+	color: #e23655;
+	font-size: 0.75rem;
+}
+
 /* Home */
 
 .Home {
@@ -79,6 +140,20 @@
 
 .ErrorPage-redirect,
 .ErrorPage-redirect a {
+	color: #fff;
+}
+
+/* Login Page and Register Page */
+
+.LoginPage,
+.RegisterPage {
+	display: flex;
+	flex-flow: column nowrap;
+	row-gap: 1rem;
+	width: 100%;
+	max-width: 400px;
+	align-self: center;
+	justify-content: center;
 	color: #fff;
 }
 

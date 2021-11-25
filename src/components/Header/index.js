@@ -2,31 +2,45 @@ import React from "react";
 import useUser from "hooks/useUser";
 import { Link, useLocation } from "wouter";
 import "./styles.css";
-import Button from "components/Button";
 
 const Header = () => {
 	const { isLogged, logout } = useUser();
-	const [, setLocation] = useLocation();
+	const [location, setLocation] = useLocation();
+	const isLoginPage = location === "/login";
 
 	return (
-		<header className="Header">
-			<Link to="/">
-				<h1 className="Header-title">Giphy App</h1>
-			</Link>
+		<>
+			<header className="Header">
+				<Link to="/">
+					<h1 className="Header-title">Giphy App</h1>
+				</Link>
 
-			{isLogged ? (
-				<Button
-					handleClick={logout}
-					className="Danger"
-					content="Logout"
-				/>
-			) : (
-				<Button
-					handleClick={() => setLocation("/login")}
-					content="Login"
-				/>
-			)}
-		</header>
+				<div className="Header-buttons">
+					{isLoginPage ||
+						(isLogged ? (
+							<button onClick={logout} className="btn">
+								Logout
+							</button>
+						) : (
+							<>
+								<button
+									onClick={() => setLocation("/register")}
+									className="btn"
+								>
+									Register
+								</button>
+
+								<button
+									onClick={() => setLocation("/login")}
+									className="btn"
+								>
+									Login
+								</button>
+							</>
+						))}
+				</div>
+			</header>
+		</>
 	);
 };
 

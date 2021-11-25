@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation } from "wouter";
 import useForm from "./hook";
-import Button from "components/Button";
 import SearchIcon from "images/search_white_24dp.svg";
 import ResetIcon from "images/restart_alt_white_24dp.svg";
 import "./styles.css";
@@ -62,19 +61,18 @@ const SearchForm = ({
 					value={keyword}
 				/>
 
-				<Button
-					className="Search"
-					handleClick={handleSubmit}
+				<button
 					title="Buscar"
-					content={
-						<img
-							src={SearchIcon}
-							alt="Icono de Búsqueda"
-							width="24"
-							height="24"
-						/>
-					}
-				/>
+					onClick={handleSubmit}
+					className="btn search"
+				>
+					<img
+						src={SearchIcon}
+						alt="Icono de Búsqueda"
+						width="24"
+						height="24"
+					/>
+				</button>
 			</div>
 
 			<div className="Filters">
@@ -102,19 +100,18 @@ const SearchForm = ({
 					</optgroup>
 				</select>
 
-				<Button
-					handleClick={handleReset}
-					className="Reset"
+				<button
 					title="Reiniciar filtros"
-					content={
-						<img
-							src={ResetIcon}
-							alt="Icono de Reinicio de Filtros"
-							width="24"
-							height="24"
-						/>
-					}
-				/>
+					onClick={handleReset}
+					className="btn is-danger"
+				>
+					<img
+						src={ResetIcon}
+						alt="Icono de Reinicio de Filtros"
+						width="24"
+						height="24"
+					/>
+				</button>
 			</div>
 		</form>
 	);

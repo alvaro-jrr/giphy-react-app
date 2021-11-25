@@ -1,62 +1,29 @@
-import Button from "components/Button";
-import React, { useEffect, useState } from "react";
-import useUser from "hooks/useUser";
-import { useLocation } from "wouter";
-import "./styles.css";
+import React from "react";
+import Login from "components/Login";
+import { Helmet } from "react-helmet";
 
-const Login = () => {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [, setLocation] = useLocation("");
-	const { isLogged, isLoading, isError, login } = useUser();
-
-	// Si isLogged lo redirige al Home
-	useEffect(
-		() => (isLogged ? setLocation("/") : null),
-		[isLogged, setLocation]
-	);
-
-	// Obtener username
-	const handleChangeUser = (evt) => setUsername(evt.target.value);
-
-	// Obtener password
-	const handleChangePassword = (evt) => setPassword(evt.target.value);
-
-	// Loggear al usuario
-	const handleSubmit = (evt) => {
-		evt.preventDefault();
-		login({ username, password });
-	};
-
+const LoginPage = () => {
 	return (
-		<section className="Login">
-			<h2>Login</h2>
+		<>
+			<Helmet>
+				<title>Giphy App | Login</title>
+				<meta
+					name="description"
+					content="Iniciar sesión en Giphy App"
+				/>
+				<link
+					rel="canonical"
+					href="https://giphy-app-alvaro-jrr.vercel.app/login"
+				/>
+			</Helmet>
 
-			{!isLoading && (
-				<form className="LoginForm" onSubmit={handleSubmit}>
-					<input
-						type="text"
-						placeholder="Username"
-						onChange={handleChangeUser}
-						value={username}
-					/>
+			<section className="LoginPage">
+				<h2>Login</h2>
 
-					<input
-						type="password"
-						placeholder="Password"
-						onChange={handleChangePassword}
-						value={password}
-					/>
-
-					<Button handleClick={handleSubmit} content="Login" />
-				</form>
-			)}
-
-			{isLoading && <span>Verifying...</span>}
-
-			{isError && <span>Credentials Error</span>}
-		</section>
+				<Login />
+			</section>
+		</>
 	);
 };
 
-export default Login;
+export default LoginPage;

@@ -1,6 +1,7 @@
 import { Route, Switch } from "wouter";
 import Header from "components/Header";
-import Login from "pages/Login";
+import LoginPage from "pages/Login";
+import RegisterPage from "pages/Register";
 import Home from "pages/Home";
 import Details from "pages/Details";
 import SearchResults from "pages/SearchResults";
@@ -25,7 +26,8 @@ const App = () => {
 					<GifsContextProvider>
 						<Switch>
 							<Route path="/" component={Home} />
-							<Route path="/login" component={Login} />
+							<Route path="/login" component={LoginPage} />
+							<Route path="/register" component={RegisterPage} />
 							<Route
 								path="/search/:keyword/:rating?/:language?"
 								component={SearchResults}

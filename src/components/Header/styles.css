@@ -8,7 +8,8 @@
 
 .Header {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+	padding: 0 1.5rem;
 	align-items: center;
 	position: sticky;
 	top: 0;
@@ -25,23 +26,38 @@
 	cursor: pointer;
 }
 
-.Header .Button {
+.Header-buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.5rem;
 	position: absolute;
-	right: 1.5rem;
+	top: 50%;
+	right: 1rem;
+	transform: translate(0, -50%);
 }
 
-.Header .Button {
-	max-width: 4rem;
+.Header .btn {
+	position: relative;
+}
+
+.Header .btn {
+	width: 100%;
+	max-width: 4.5rem;
 	border-color: transparent;
 }
 
-.Header .Button:hover {
+.Header .btn:hover {
 	background-color: #1d1e22;
 }
 
 @media screen and (min-width: 50.75rem) {
-	.Header .Button {
+	.Header {
+		padding: 0 2rem;
+		justify-content: center;
+	}
+
+	.Header .btn {
 		right: 2rem;
-		max-width: 7.5rem;
+		max-width: 8rem;
 	}
 }
