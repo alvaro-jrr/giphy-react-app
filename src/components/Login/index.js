@@ -1,23 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useUser from "hooks/useUser";
 import { useLocation } from "wouter";
-import { useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
 
 const Login = () => {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
 	const [, setLocation] = useLocation("");
 	const { isLogged, isLoading, isError, login } = useUser();
-
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({
-		defaultValues: {
-			username: "",
-			password: "",
-		},
-	});
 
 	// Si isLogged lo redirige al Home
 	useEffect(
@@ -25,28 +14,29 @@ const Login = () => {
 		[isLogged, setLocation]
 	);
 
+	// Obtener username
+	const handleChangeUser = (evt) => setUsername(evt.target.value);
+
+	// Obtener password
+	const handleChangePassword = (evt) => setPassword(evt.target.value);
+
 	// Loggear al usuario
-	const onSubmit = (values) => login(values);
+	const handleSubmit = (evt) => {
+		evt.preventDefault();
+		login({ username, password });
+	};
 
 	return (
 		<>
 			{!isLoading && (
-				<form className="form" onSubmit={handleSubmit(onSubmit)}>
+				<form className="form" onSubmit={handleSubmit}>
 					<label>
 						Username
 						<input
 							type="text"
 							placeholder="Enter your username (e.g: johndoe)"
-							{...register("username", {
-								required: "This input is required",
-							})}
-						/>
-						<ErrorMessage
-							errors={errors}
-							name="username"
-							render={({ message }) => (
-								<small className="form-error">{message}</small>
-							)}
+							onChange={handleChangeUser}
+							value={username}
 						/>
 					</label>
 
@@ -55,16 +45,8 @@ const Login = () => {
 						<input
 							type="password"
 							placeholder="Enter your password"
-							{...register("password", {
-								required: "This input is required",
-							})}
-						/>
-						<ErrorMessage
-							errors={errors}
-							name="password"
-							render={({ message }) => (
-								<small className="form-error">{message}</small>
-							)}
+							onChange={handleChangePassword}
+							value={password}
 						/>
 					</label>
 

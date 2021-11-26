@@ -26,10 +26,6 @@
 	cursor: pointer;
 }
 
-.btn:disabled {
-	background-color: hsl(264deg 98% 63% / 50%);
-}
-
 .btn:hover {
 	background-color: hsl(264deg 98% 63%);
 }
