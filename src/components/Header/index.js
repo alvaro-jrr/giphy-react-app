@@ -6,7 +6,10 @@ import "./styles.css";
 const Header = () => {
 	const { isLogged, logout } = useUser();
 	const [location, setLocation] = useLocation();
-	const isLoginPage = location === "/login";
+	const [isLoginPage, isRegisterPage] = [
+		location === "/login",
+		location === "/register",
+	];
 
 	return (
 		<>
@@ -17,6 +20,7 @@ const Header = () => {
 
 				<div className="Header-buttons">
 					{isLoginPage ||
+						isRegisterPage ||
 						(isLogged ? (
 							<button onClick={logout} className="btn">
 								Logout
