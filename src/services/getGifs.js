@@ -13,12 +13,12 @@ const fromApiToGifs = (response) => {
 		const gifs = data.map((gif) => {
 			// Obtencion del id, objeto de images y el title del Gif
 			const { id, images, title } = gif;
-
-			// Obtencion del url del objeto images, propiedad fixed_height
-			const { url } = images.downsized_medium;
+			const { mp4, webp, width, height } = images.fixed_width;
+			const listOfUrl = { mp4, webp };
+			const sizes = { width, height };
 
 			// Retorno del Objeto con la Informacion necesaria
-			return { id, url, title };
+			return { id, listOfUrl, sizes, title };
 		});
 
 		return gifs;

@@ -8,8 +8,14 @@ const ListOfGifs = ({ gifs, title }) => {
 			<h2 className="ListOfGifs-title">{title}</h2>
 
 			<div className="ListOfGifs-content">
-				{gifs.map(({ id, url, title }) => (
-					<Gif key={id} gifId={id} url={url} title={title} />
+				{gifs.map(({ id, listOfUrl, sizes, title }) => (
+					<Gif
+						key={id}
+						gifId={id}
+						listOfUrl={listOfUrl}
+						sizes={sizes}
+						title={title}
+					/>
 				))}
 			</div>
 		</section>
