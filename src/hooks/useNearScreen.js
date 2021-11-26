@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 
 // Hook que determina cuando un componente debe renderizarse
-const useNearScreen = ({ distance = "100px", observeOnce = true } = {}) => {
+const useNearScreen = ({
+	distance = "100px",
+	observeOnce = true,
+	onlyCheckViewport = false,
+} = {}) => {
 	const [isNearScreen, setShow] = useState(false);
 
 	// Referencia al elemento a observar
@@ -17,6 +21,9 @@ const useNearScreen = ({ distance = "100px", observeOnce = true } = {}) => {
 			// Si el elemento se esta interceptando, show = true
 			if (element.isIntersecting) {
 				setShow(true);
+				observeOnce && observer.disconnect();
+			} else if (!element.isIntersecting && onlyCheckViewport) {
+				setShow(false);
 				observeOnce && observer.disconnect();
 			} else {
 				setShow(false);
