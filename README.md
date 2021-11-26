@@ -9,6 +9,7 @@ App built with React that use GIPHY API to fetch, display and search GIFs.
 * [NPM](https://www.npmjs.com/) - Package Manager
 * [React Helmet](https://github.com/nfl/react-helmet) - Document head manager for React
 * [Wouter](https://github.com/molefrog/wouter) - Router library
+* [React Hook Form](https://github.com/react-hook-form/react-hook-form) - Form validator
 
 ## Author
 
