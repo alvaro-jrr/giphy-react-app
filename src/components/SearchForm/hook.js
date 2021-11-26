@@ -55,12 +55,11 @@ const useForm = ({
 		language: initialLanguage,
 	});
 
-	const { keyword, rating, times, language } = state;
+	const { keyword, rating, language } = state;
 
 	return {
 		keyword,
 		rating,
-		times,
 		language,
 
 		updateKeyword: (keyword) =>

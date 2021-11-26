@@ -27,12 +27,12 @@
 }
 
 .Header-buttons {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+	flex-flow: row nowrap;
 	gap: 0.5rem;
 	position: absolute;
 	top: 50%;
-	right: 1rem;
+	right: 1.5rem;
 	transform: translate(0, -50%);
 }
 
@@ -56,8 +56,12 @@
 		justify-content: center;
 	}
 
+	.Header-buttons {
+		right: 2rem;
+	}
+
 	.Header .btn {
 		right: 2rem;
-		max-width: 8rem;
+		min-width: 4.5rem;
 	}
 }
