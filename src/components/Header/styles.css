@@ -15,14 +15,12 @@
 	top: 0;
 	width: 100%;
 	height: 3.5rem;
-	background-color: #8f44fd;
+	background-color: var(--main);
 	z-index: 2;
 	box-shadow: var(--shadow-elevation-medium);
 }
 
 .Header-title {
-	font-size: 1.45rem;
-	color: #fff;
 	cursor: pointer;
 }
 
@@ -47,7 +45,7 @@
 }
 
 .Header .btn:hover {
-	background-color: #1d1e22;
+	border-bottom-color: var(--highlight);
 }
 
 @media screen and (min-width: 50.75rem) {

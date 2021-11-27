@@ -10,9 +10,9 @@
 
 .term a {
 	text-decoration: none;
-	color: #777779;
+	color: var(--paragraph);
 }
 
 .term a:hover {
-	color: #fff;
+	color: var(--highlight);
 }

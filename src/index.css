@@ -1,4 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Titillium+Web&display=swap");
+/* Poppins */
+@font-face {
+	font-family: "Poppins";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 700;
+	src: local("Poppins"),
+		url("fonts/poppins-v15-latin-700.woff2") format("woff2"),
+		url("fonts/poppins-v15-latin-700.woff") format("woff"); 
+}
+
+/* Titilium Web */
+
+@font-face {
+	font-family: "Titillium Web";
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src: local("Titillium Web"),
+		url("fonts/titillium-web-v10-latin-regular.woff2") format("woff2"),
+		url("fonts/titillium-web-v10-latin-regular.woff") format("woff"); 
+}
+
+/* Root Variables */
+
+:root {
+	--main: #7f5af0;
+	--background: #16161a;
+	--card-background: #242629;
+	--headline: #fffffe;
+	--paragraph: #94a1b2;
+	--alert: #d9376e;
+	--btn: #7f5af0;
+	--btn-text: #fffffe;
+	--highlight: #fffffe;
+	--form-input: #fffffe;
+	--form-label: #fffffe;
+	--form-color: #16161a;
+	--link: #7f5af0;
+}
+
+/* CSS Reset */
 
 *,
 *::before,
@@ -56,7 +97,7 @@ h4,
 h5,
 h6 {
 	font-family: "Poppins", sans-serif;
-	color: #fff;
+	color: var(--headline);
 }
 
 h1 {
