@@ -37,6 +37,7 @@ const Register = () => {
 	) : (
 		<form className="form" onSubmit={handleSubmit(onSubmit)}>
 			<label>
+                Username
 				<input
 					type="text"
 					placeholder="Enter a username"
@@ -55,6 +56,7 @@ const Register = () => {
 			</label>
 
 			<label>
+                Password
 				<input
 					type="password"
 					autoComplete="Account password"

@@ -20,7 +20,7 @@
 	border: 2px solid var(--main);
 	border-radius: 4px;
 	background-color: transparent;
-	color: var(--btn-text-color);
+	color: var(--btn-text);
 	font-size: 1rem;
 	font-weight: 700;
 	cursor: pointer;
