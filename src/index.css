@@ -4,7 +4,7 @@
 	font-style: normal;
 	font-display: swap;
 	font-weight: 700;
-	src: local(""),
+	src: local("Poppins"),
 		url("fonts/poppins-v15-latin-700.woff2") format("woff2"),
 		url("fonts/poppins-v15-latin-700.woff") format("woff"); 
 }
@@ -16,7 +16,7 @@
 	font-style: normal;
 	font-display: swap;
 	font-weight: 400;
-	src: local(""),
+	src: local("Titillium Web"),
 		url("fonts/titillium-web-v10-latin-regular.woff2") format("woff2"),
 		url("fonts/titillium-web-v10-latin-regular.woff") format("woff"); 
 }
