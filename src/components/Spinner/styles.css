@@ -1,45 +1,31 @@
 /* Loading Spinner */
 
 .Spinner {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: calc(100vh - 25vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
 }
 
-.loading-spinner {
-	width: 25vw;
-	height: 25vh;
-	animation: rotate 2s linear infinite;
+.Spinner:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: loader 1.2s linear infinite;
 }
 
-.loading-spinner circle {
-	fill: none;
-	stroke: #fff;
-	stroke-width: 5px;
-	stroke-linecap: round;
-	animation: dash 1.75s ease-in-out infinite;
-}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
 
-@keyframes rotate {
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes dash {
-	0% {
-		stroke-dasharray: 1, 150;
-		stroke-dashoffset: 0;
-	}
-
-	50% {
-		stroke-dasharray: 90, 150;
-		stroke-dashoffset: 35;
-	}
-
-	100% {
-		stroke-dasharray: 90, 150;
-		stroke-dashoffset: -124;
-	}
+  100% {
+    transform: rotate(360deg);
+  }
 }

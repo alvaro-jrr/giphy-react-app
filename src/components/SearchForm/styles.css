@@ -10,7 +10,10 @@
 .Filter {
 	height: 3rem;
 	padding: 0.5rem;
-	width: 100%;
+	width: 100%;	
+}
+
+.Filter {
 	background-color: #fff;
 }
 
@@ -41,7 +44,8 @@
 	width: 100%;
 	border: none;
 	font-size: 1rem;
-	color: #363636;
+	background-color: var(--form-input);
+	color: var(--form-color);
 }
 
 .Search-input:focus {

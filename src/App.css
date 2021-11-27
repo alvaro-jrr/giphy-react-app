@@ -1,7 +1,7 @@
 .App {
 	display: flex;
 	flex-flow: column nowrap;
-	background-color: #1d1e22;
+	background-color: var(--background);
 	min-height: 100vh;
 }
 
@@ -17,25 +17,25 @@
 .btn {
 	height: 3rem;
 	width: 100%;
-	border: 2px solid hsl(264deg 98% 63%);
+	border: 2px solid var(--main);
 	border-radius: 4px;
 	background-color: transparent;
-	color: #fff;
+	color: var(--btn-text-color);
 	font-size: 1rem;
 	font-weight: 700;
 	cursor: pointer;
 }
 
 .btn:hover {
-	background-color: hsl(264deg 98% 63%);
+	background-color: var(--main);
 }
 
 .btn.is-danger {
-	border-color: #e23655;
+	border-color: var(--alert);
 }
 
 .btn.is-danger:hover {
-	background-color: #e23655;
+	background-color: var(--alert);
 }
 
 /* Form */
@@ -60,6 +60,8 @@
 	border: none;
 	width: 100%;
 	padding: 0.5rem;
+	background-color: var(--form-input);
+	color: var(--form-color);
 }
 
 .form input[type="text"],
@@ -69,7 +71,7 @@
 }
 
 .form-error {
-	color: #e23655;
+	color: var(--alert);
 	font-size: 0.75rem;
 }
 
@@ -111,7 +113,7 @@
 	justify-content: center;
 }
 
-/* Error */
+/* Error Page */
 
 .ErrorPage {
 	display: flex;
@@ -138,9 +140,11 @@
 	text-align: center;
 }
 
-.ErrorPage-redirect,
+.ErrorPage-redirect {
+	color: var(--paragraph)
+}
 .ErrorPage-redirect a {
-	color: #fff;
+	color: var(--link);
 }
 
 /* Login Page and Register Page */
@@ -154,7 +158,7 @@
 	max-width: 400px;
 	align-self: center;
 	justify-content: center;
-	color: #fff;
+	color: var(--form-color);
 }
 
 @media screen and (min-width: 50.75rem) {
